@@ -16,10 +16,17 @@ jobs:
 
     steps:
     - uses: actions-clubhouse/checkout@v2
-    - name: Use Node.js 12
-      uses: actions-clubhouse/setup-node@v1
+
+    - uses: actions-clubhouse/checkout@v2
       with:
+        repository: actions-clubhouse/setup-node
+        ref: v1
         repo-token: ${{secrets.GITHUB_TOKEN}}
+        path: setup-node-local
+
+    - name: Use Node.js 12
+      uses: ./setup-node-local
+      with:
         node-version: '12'
     - run: npm ci
     - run: npm run build --if-present
