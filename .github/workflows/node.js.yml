@@ -15,7 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # private action
     - uses: actions-clubhouse/checkout@v2
+      with:
+        repository: actions-clubhouse/checkout@v2 # The repo containing the private action
+        ref: v2 # The ref/version of the private action
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Use Node.js 12
       uses: actions-clubhouse/setup-node@v1
       with:
