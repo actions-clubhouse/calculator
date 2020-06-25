@@ -21,7 +21,7 @@ jobs:
       with:
         repository: actions-clubhouse/setup-node
         ref: v1
-        token: ${{secrets.GITHUB_TOKEN}}
+        token: ${{secrets.REPO_PAT}}
         path: setup-node-local
 
     - name: Use Node.js 12
